@@ -1,0 +1,20 @@
+###########################################
+# Sentaurus Visual X-2025.06.
+# Tcl log file.
+#------------------------------------------
+# Date: Sep 08, 2025. 00:44:11.
+# Version: 2025.06.9833470
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: tcadpc12.
+# Machine: Linux, x86_64, linux64.
+# Kernel: 4.18.0-425.3.1.el8.x86_64.
+###########################################
+
+load_file /home/student/STUDENTS/230959200_A3/2/pn_model_2_bnd.tdr -fod
+create_plot -dataset pn_model_2_bnd
+select_plots {Plot_pn_model_2_bnd}
+#-> Plot_pn_model_2_bnd
+#-> Plot_pn_model_2_bnd
+#-> pn_model_2_bnd
+exit 0

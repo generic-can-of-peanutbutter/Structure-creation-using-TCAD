@@ -1,0 +1,18 @@
+;;
+;; (journal:on "/home/student/STUDENTS/230959200_A3/model1.jrl")
+;; "/home/student/STUDENTS/230959200_A3/model1.jrl"
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/model")
+;; "/home/student/STUDENTS/230959200_A3/model"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/model")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/model")
+;; "/home/student/STUDENTS/230959200_A3/model"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/model")
+;; #t
+(sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/model")
+"Meshing successful"
+;; #t
+(system:command "svisual /home/student/STUDENTS/230959200_A3/model_msh.tdr &")
+;; 0

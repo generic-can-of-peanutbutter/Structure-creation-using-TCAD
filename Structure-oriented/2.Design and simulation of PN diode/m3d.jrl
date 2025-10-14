@@ -1,0 +1,124 @@
+;;
+;; (journal:on "/home/student/STUDENTS/230959200_A3/2/m3d.jrl")
+;; "/home/student/STUDENTS/230959200_A3/2/m3d.jrl"
+;; (journal:save "/home/student/STUDENTS/230959200_A3/2/pn_diode.jrl")
+;; "/home/student/STUDENTS/230959200_A3/2/pn_diode.j ...
+(sdegeo:set-auto-region-naming OFF)
+;; #t
+(bound? 'Silicon)
+;; #f
+(sdegeo:create-rectangle (position -1.959907 0.732171 0)  (position 1.818072 -0.474137 0) "Silicon" "Silicon")
+;; #[body 9 1]
+(sdegeo:delete-region (list (car (find-body-id (position -0.0709175 0.129017 0)))))
+
+;; ()
+(bound? 'Silicon)
+;; #f
+;; (sdegeo:create-rectangle (position 0 1 0)  (position 5 1 0) "Silicon" "Silicon")*** Error sdegeo:create-rectangular-sheet: cannot make wire with duplicate vertices
+;; 
+;*** ERROR ***
+;; 
+(bound? 'Silicon)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 5 1 0) "Silicon" "Silicon")
+;; #[body 11 1]
+(sde:set-default-material "SiO2")
+;; "Silicon"
+(bound? 'Si02)
+;; #f
+(sdegeo:create-rectangle (position 0.099075 1.748643 0)  (position 1.370711 1.045984 0) "SiO2" "Si02")
+;; #[body 12 1]
+(sdegeo:delete-region (list (car (find-body-id (position 0.734893 1.3973135 0)))))
+
+;; ()
+(bound? 'region_5)
+;; #f
+(sdegeo:create-rectangle (position 0 1 0)  (position 1 1.8 0) "SiO2" "region_5")
+;; #[body 14 1]
+(sdegeo:delete-region (list (car (find-body-id (position 0.5 1.4 0)))))
+
+;; ()
+(bound? 'region_6)
+;; #f
+(sdegeo:create-rectangle (position 0 1 0)  (position 1 1.5 0) "SiO2" "region_6")
+;; #[body 16 1]
+(bound? 'region_7)
+;; #f
+(sdegeo:create-rectangle (position 1.8 1 0)  (position 3.2 1.5 0) "SiO2" "region_7")
+;; #[body 17 1]
+(bound? 'region_8)
+;; #f
+(sdegeo:create-rectangle (position 4 1 0)  (position 5 1.5 0) "SiO2" "region_8")
+;; #[body 18 1]
+(sde:set-default-material "TiN")
+;; "SiO2"
+(sdegeo:set-default-boolean "BAB")
+;; "ABA"
+(bound? 'anode)
+;; #f
+(sdegeo:create-rectangle (position 1 1 0)  (position 2 3.5 0) "TiN" "anode")
+;; #[body 19 1]
+(bound? 'cathode)
+;; #f
+(sdegeo:create-rectangle (position 2.8 1 0)  (position 4.3 3.5 0) "TiN" "cathode")
+;; #[body 20 1]
+(sdegeo:set-default-boolean "ABA")
+;; "BAB"
+(sde:set-default-material "Silicon")
+;; "TiN"
+(bound? 'n_region)
+;; #f
+(sdegeo:create-rectangle (position 1 0.7 0)  (position 2 1 0) "Silicon" "n_region")
+;; #[body 21 1]
+(sdedr:define-constant-profile "ConstantProfileDefinition_P" "BoronActiveConcentration" 1e15)
+;; #t
+(sdedr:define-constant-profile "ConstantProfileDefinition_n" "PhosphorusActiveConcentration" 1e18)
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_n" "Line"  (position 1 1 0.0)  (position 2 1 0.0) )
+;; #[body 22 1]
+(sdedr:define-analytical-profile-placement "AnalyticalProfilePlacement_1" "AnalyticalProfileDefinition_n" "RefEvalWin_n" "Both" "NoReplace" "Eval" "n_region" 0.8 "region")
+;; #t
+(sdedr:define-gaussian-profile "AnalyticalProfileDefinition_n" "PhosphorusActiveConcentration" "PeakPos" 0  "PeakVal" 1e18 "ValueAtDepth" 1e15 "Depth" 0.8 "Gauss"  "Factor" 0.1)
+;; #t
+
+(bound? 'RefEvalWin_global)
+;; #f
+(sdedr:define-refeval-window "RefEvalWin_global" "Rectangle"  (position -0.9235 3.8001 0) (position 6.2527 -0.6721 0))
+;; #[body 23 1]
+(sdedr:define-refinement-size "RefinementDefinition_1" 0.05 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_global" "RefinementDefinition_1" (list "window" "RefEvalWin_global" ) )
+;; ("RefinementPlacement_global")
+(sdedr:define-refinement-function "RefinementDefinition_1" "MaxLenInt" "n_region" "n_region" 10 0.4 "UseRegionNames")
+;; #t
+(sdedr:define-refinement-function "RefinementDefinition_1" "MaxLenInt" "cathode" "cathode" 10 0.4 "UseRegionNames")
+;; #t
+(sdedr:define-refinement-function "RefinementDefinition_1" "MaxLenInt" "anode" "anode" 10 0.4 "UseRegionNames")
+;; #t
+(sdedr:define-refinement-function "RefinementDefinition_1" "MaxLenInt" "region_6" "region_6" 10 0.4 "UseRegionNames")
+;; #t
+(sdedr:define-refinement-function "RefinementDefinition_1" "MaxLenInt" "region_7" "region_7" 10 0.4 "UseRegionNames")
+;; #t
+(sdedr:define-refinement-function "RefinementDefinition_1" "MaxLenInt" "region_8" "region_8" 10 0.4 "UseRegionNames")
+;; #t
+(sde:save-model "/home/student/STUDENTS/230959200_A3/2/pn_model")
+;; 0
+(sde:save-model "/home/student/STUDENTS/230959200_A3/2/pn_model")
+;; 0
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/2/pn_model")
+;; "/home/student/STUDENTS/230959200_A3/2/pn_model"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/2/pn_model")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/2/pn_model")
+;; "/home/student/STUDENTS/230959200_A3/2/pn_model"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/2/pn_model")
+;; #t
+(sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/2/pn_model")
+"Meshing successful"
+;; #t
+(system:command "svisual /home/student/STUDENTS/230959200_A3/2/pn_model_msh.tdr &")
+;; 0
+(sde:save-model "/home/student/STUDENTS/230959200_A3/2/pn_model")
+;; 0
