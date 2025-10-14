@@ -1,0 +1,413 @@
+;;
+;; (journal:on "/home/student/STUDENTS/230959200_A3/3/moscap.jrl")
+;; "/home/student/STUDENTS/230959200_A3/3/moscap.jrl
+(sdegeo:set-auto-region-naming OFF)
+;; #t
+(bound? 'Silicon)
+;; #f
+(sdegeo:create-rectangle (position -1.598872 0.132242 0)  (position 1.721366 -0.73217 0) "Silicon" "Silicon")
+;; #[body 5 1]
+(sdegeo:delete-region (list (car (find-body-id (position 0.061247 -0.299964 0)))))
+
+;; ()
+(bound? 'Silicon)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 3 0.5 0) "Silicon" "Silicon")
+;; #[body 7 1]
+(sde:set-default-material "SiO2")
+;; "Silicon"
+(bound? 'SiO2)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 3 0.05 0) "SiO2" "SiO2")
+;; #[body 8 1]
+(sde:set-default-material "Metal")
+;; "SiO2"
+(bound? 'metal)
+;; #f
+(sdegeo:create-rectangle (position 0 0.55 0)  (position 3 0.6 0) "Metal" "metal")
+;; #[body 9 1]
+(bound? 'Metal)
+;; #f
+(sdegeo:create-rectangle (position 0 0.5 0)  (position 3 0.6 0) "Metal" "Metal")
+;; #[body 10 1]
+(bound? 'Metal)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 0.55 3 0) "Metal" "Metal")
+;; #[body 11 1]
+(roll)
+;; -1
+(sdegeo:delete-region (list (car (find-body-id (position 1.5 0.55 0)))))
+
+;; ()
+(bound? 'Metal)
+;; #f
+(sdegeo:create-rectangle (position 0 0.55 0)  (position 3 0.05 0) "Metal" "Metal")
+;; #[body 13 1]
+(roll)
+;; -1
+(bound? 'Metal)
+;; #f
+(sdegeo:create-rectangle (position 0 0.55 0)  (position 3 0.6 0) "Metal" "Metal")
+;; #[body 14 1]
+(sdegeo:delete-region (list (car (find-body-id (position 1.5 0.025 0)))))
+
+;; ()
+(sde:set-default-material "SiO2")
+;; "Metal"
+(bound? 'Sio2)
+;; #f
+(sdegeo:create-rectangle (position 0 0.5 0)  (position 3 0.55 0) "SiO2" "Sio2")
+;; #[body 16 1]
+(sdedr:define-constant-profile "ConstantProfileDefinition_1" "BoronActiveConcentration" 1e16)
+;; #t
+(sdedr:define-constant-profile-material "ConstantProfilePlacement_1" "ConstantProfileDefinition_1" "Silicon")
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_1" "Rectangle"  (position -0.5 -0.05 0.0)  (position 3.5 0.65 0.0) )
+;; #[body 17 1]
+(sdedr:define-refinement-size "RefinementDefinition_1" 0.05 0.05 0.01 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_1" "RefinementDefinition_1" (list "window" "RefEvalWin_1" ) )
+;; ("RefinementPlacement_1")
+(sdedr:define-refinement-function "RefinementDefinition_1" "MaxLenInt" "Silicon" "Silicon" 0.01 1.5 "DoubleSide")
+;; #t
+(sde:set-project-name "sdemodel")
+;; ""
+(sdesnmesh:iocontrols "outputFile" "sdemodel")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "sdemodel")
+;; #t
+(sde:build-mesh "" "sdemodel")
+"Meshing successful"
+;; #t
+(system:command "svisual sdemodel_msh.tdr &")
+;; 0
+(sde:set-project-name "./sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "./sdemodel")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "./sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "./sdemodel")
+;; #t
+(sde:build-mesh "" "./sdemodel")
+"Meshing successful"
+;; #t
+(system:command "svisual ./sdemodel_msh.tdr &")
+;; 0
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-current-contact-set "none")
+;; "none"
+(sdegeo:define-contact-set "Gate" 4  (color:rgb 1 0 0 ) "##")
+;; ()
+(sdegeo:define-contact-set "Body" 4  (color:rgb 1 0 0 ) "##")
+;; ()
+(sde:set-default-material "Metal")
+;; "SiO2"
+(sdegeo:set-contact (list (car (find-edge-id (position 1.5 0.6 0)))) "Gate")
+(sdegeo:set-contact (list (car (find-edge-id (position 1.5 0.6 0)))) "Gate")
+
+;; ()
+(render:rebuild)
+;; ()
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position 1.5 0.05 0)))) "Body")
+(sdegeo:set-contact (list (car (find-edge-id (position 1.5 0.05 0)))) "Body")
+
+;; ()
+(render:rebuild)
+;; ()
+
+;; ()
+(render:rebuild)
+;; ()
+(sde:set-project-name "./sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "./sdemodel")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "./sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "./sdemodel")
+;; #t
+(sde:build-mesh "" "./sdemodel")
+"Meshing successful"
+;; #t
+(system:command "svisual ./sdemodel_msh.tdr &")
+;; 0
+(sde:set-project-name "./sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "./sdemodel")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "./sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "./sdemodel")
+;; #t
+(sde:build-mesh "" "./sdemodel")
+"Meshing successful"
+;; #t
+(system:command "svisual ./sdemodel_msh.tdr &")
+;; 0
+(sde:set-project-name "./sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "./sdemodel")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "./sdemodel")
+;; "./sdemodel"
+(sdesnmesh:iocontrols "outputFile" "./sdemodel")
+;; #t
+(sde:build-mesh "" "./sdemodel")
+"Meshing successful"
+;; #t
+(system:command "svisual ./sdemodel_msh.tdr &")
+;; 0
+(sdeio:save-tdr-bnd (get-body-list) "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+"Meshing successful"
+;; #t
+(system:command "svisual /home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr &")
+;; 0
+;; (journal:save "/home/student/STUDENTS/230959200_A3/3/moscap.jrl")*** Error journal:save: Cannot Copy - Save file and current journal file are same - /home/student/STUDENTS/230959200_A3/3/moscap.jrl
+;; 
+;*** ERROR ***
+;; 
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+;; (sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "Error during meshing"
+;; *** Error sde:error: Meshing failed
+;; 
+;*** ERROR ***
+;; 
+(sde:save-model "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; 0
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+;; (sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "Error during meshing"
+;; *** Error sde:error: Meshing failed
+;; 
+;*** ERROR ***
+;; 
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+;; (sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "Error during meshing"
+;; *** Error sde:error: Meshing failed
+;; 
+;*** ERROR ***
+;; 
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+"Meshing successful"
+;; #t
+(system:command "svisual /home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr &")
+;; 0
+(sde:save-model "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; 0
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+"Meshing successful"
+;; #t
+(system:command "svisual /home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr &")
+;; 0
+(sdedr:define-constant-profile "ConstantProfileDefinition_1" "BoronActiveConcentration" 1e+12)
+;; #t
+(sdedr:define-constant-profile-material "ConstantProfilePlacement_1" "ConstantProfileDefinition_1" "Silicon")
+;; #t
+(sde:save-model "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; 0
+(sde:save-model "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; 0
+(sdedr:define-constant-profile "ConstantProfileDefinition_1" "BoronActiveConcentration" 1e+12)
+;; #t
+(sdedr:define-constant-profile-material "ConstantProfilePlacement_1" "ConstantProfileDefinition_1" "Silicon")
+;; #t
+(sde:save-model "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; 0
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+"Meshing successful"
+;; #t
+(system:command "svisual /home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr &")
+;; 0
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1_ ...
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1_msh")
+;; #t
+(sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+"Meshing successful"
+;; #t
+(system:command "svisual /home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr &")
+;; 0
+(sde:open-model "/home/student/STUDENTS/230959200_A3/3/sdemodel1.sat")
+;; ()
+
+;; ()
+(sde:set-default-material "Insulator1")
+;; "Metal"
+
+;; ()
+
+;; ()
+
+;; ()
+
+;; ()
+
+;; ()
+
+;; ()
+
+;; ()
+
+;; ()
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; #t
+;; (sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")Duplicate region/contact names were changed
+;; 
+;; "Error during meshing"
+;; *** Error sde:error: Meshing failed
+;; 
+;*** ERROR ***
+;; 
+(system:command "svisual /home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr &")
+;; 0
+(sde:set-default-material "GeO2")
+;; "Insulator1"
+
+;; ()
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; #t
+;; (sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "Error during meshing"
+;; *** Error sde:error: Meshing failed
+;; 
+;*** ERROR ***
+;; 
+(system:command "svisual /home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr &")
+;; 0
+
+;; ()
+
+;; ()
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "/home/student/STUDENTS/230959200_A3/3/sdemodel1"
+(sdesnmesh:iocontrols "outputFile" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; #t
+;; (sde:build-mesh "" "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; "Error during meshing"
+;; *** Error sde:error: Meshing failed
+;; 
+;*** ERROR ***
+;; 
+(system:command "svisual /home/student/STUDENTS/230959200_A3/3/sdemodel1_msh.tdr &")
+;; 0
+(sde:save-model "/home/student/STUDENTS/230959200_A3/3/sdemodel1")
+;; 0
