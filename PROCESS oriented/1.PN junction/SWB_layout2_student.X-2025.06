@@ -1,0 +1,9 @@
+SWB*WB_invisible.geometry: 1920x955+0+0
+SWB*WB_invisible.sash: 250 1
+SWB*WB_invisible.Preferences_ItemColumn: 25
+SWB*WB_invisible.Preferences_Type: 12
+SWB*WB_invisible.Preferences_Value: 40
+SWB*WB_invisible.Preferences_EditColumn: 6
+SWB*WB_invisible.Preferences_Geometry: 740x553+113+125
+SWB*WB_invisible.NodeExplorer,geometry: 800x400+0+0
+SWB*WB_invisible.NodeExplorer,geometry_sash: 300 1

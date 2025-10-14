@@ -1,0 +1,4 @@
+01:36:38 Sep 09 2025 <di> submitted to the batch system
+01:36:39 Sep 09 2025     job 1 <sprocess> started on host 'tcadpc12': "sprocess --max_threads 1  -u -b n1_fps.cmd"
+01:37:55 Sep 09 2025 +++ job 1 <sprocess> done: exit(0)
+01:37:57 Sep 09 2025 <di> done (79 sec)

@@ -1,0 +1,108 @@
+
+                           Sentaurus Workbench gsub 
+
+                  Version X-2025.06 for linux64 - May 23, 2025
+           Changelist number: 9833470, Compile host: sce-tcad-build04
+
+                    Copyright (c) 1994 - 2025 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+gsub is running on host 'tcadpc12' by user 'student'
+Binary '/usr/tools/synopsys/sentaurus/X-2025.06/tcad/current/linux64/bin/../lib/gsub0'
+Command line options '-verbose -swb_pid 9455 -q local:default -e 1 /home/student/STUDENTS/230959200_A3/6/di'
+Current directory '/home/student/STUDENTS/230959200_A3/6'
+Project organization 'Traditional'
+Some relevant environment variables:
+	STROOT=/usr/tools/synopsys/sentaurus/X-2025.06
+	STRELEASE=current
+	STROOT_LIB=/usr/tools/synopsys/sentaurus/X-2025.06/tcad/current/lib
+	STDB=/home/student/STUDENTS/230959200_A3/6
+	DATEX=/usr/tools/synopsys/sentaurus/X-2025.06/tcad/current/lib/datexcodes.txt
+	DISPLAY=:0
+
+Starting swblm daemon...OK
+Project '/home/student/STUDENTS/230959200_A3/6/di'
+Application mode : traditional
+01:36:38 Sep 09 2025 <di> submitted to the batch system
+Loading global queue configuration file '/usr/tools/synopsys/sentaurus/X-2025.06/queues/gqueues.dat'...ok
+Loading project tree '/home/student/STUDENTS/230959200_A3/6/di/gtree.dat'
+>>>>> Preprocessing the project to run in normal mode
+Loading jobs and dependence graph '"/home/student/STUDENTS/230959200_A3/6/di/gexec.cmd"'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/student/STUDENTS/230959200_A3/6/di/gtree.dat'
+Loading project variables '/home/student/STUDENTS/230959200_A3/6/di/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/student/STUDENTS/230959200_A3/6/di/sprocess_fps.cmd
+PREPROCESSING STEP 2:
+---------------------------------------
+Preprocessing file /home/student/STUDENTS/230959200_A3/6/di/sprocess_fps.cmd for node 1
++++Node successfully preprocessed+++
+Writing 'gexec.cmd'
+Loading jobs and dependence graph '"/home/student/STUDENTS/230959200_A3/6/di/gexec.cmd"'
+>>>>>>>>>> job '1' status changed from 'none' to 'queued'
+-----------------------------------------------------------------
+queue "local:default" - 1
+-----------------------------------------------------------------
+>>>>>>>>>> Initializing back-end schedulers...
+>>>>>>>> Loaded Schedulers are ... local
+local% initialize 'local' scheduler data
+>>>>> List of Active Schedulers : local
+<<<<<<<<<<
+>>>>>>>>>> job '1' status changed from 'queued' to 'ready'
+INITIALIZING PREPROCESSOR:
+Loading project tree '/home/student/STUDENTS/230959200_A3/6/di/gtree.dat'
+Loading jobs and dependence graph '"/home/student/STUDENTS/230959200_A3/6/di/gexec.cmd"'
+Loading project variables '/home/student/STUDENTS/230959200_A3/6/di/gvars.dat'
+--Get files to preprocess...
+--Create file handlers...
+--Read the toolflow...
+--Analyze tool-file dependencies...
+--Read all nodes to preprocess...
+--Group nodes into experiments...
+--Get all variables...
+--Get all parameters...
+PREPROCESSOR SUCCESSFULLY INITIALIZED.
+PREPROCESSING STEP 1:
+Reading file /home/student/STUDENTS/230959200_A3/6/di/sprocess_fps.cmd
+PREPROCESSING STEP 2:
+---------------------------------------
+Preprocessing file /home/student/STUDENTS/230959200_A3/6/di/sprocess_fps.cmd for node 1
++++Preprocessed results written to /home/student/STUDENTS/230959200_A3/6/di/pp1_fps.cmd
++++Node successfully preprocessed+++
+>>>>>>>>>> os_rm /home/student/STUDENTS/230959200_A3/6/di/n1_fps.job
+local% submit job 1 for local execution
+>>>>>>>>>> job '1' status changed from 'ready' to 'pending'
+local% exec /usr/tools/synopsys/sentaurus/X-2025.06/bin/gjob -verbose -nice 19 --max_threads 1  -job 1 -swb_pid 9455 -gsub_pid 10002 -gsub_host tcadpc12 -gsub_port 41773  "/home/student/STUDENTS/230959200_A3/6/di"
+>>>>>>>>>> job '1' status changed from 'pending' to 'running'
+01:36:39 Sep 09 2025     job 1 <sprocess> started on host 'tcadpc12': "sprocess --max_threads 1  -u -b n1_fps.cmd"
+>>>>>>>>>> job '1' status changed from 'running' to 'done'
+01:37:55 Sep 09 2025 +++ job 1 <sprocess> done: exit(0)
+
+SCHEDULING REPORT
++++ done     : 1
+
+01:37:57 Sep 09 2025 <di> done (79 sec)
+>>>>>> Writing to status file 79
+gsub exits with status 0

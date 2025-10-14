@@ -1,0 +1,88 @@
+###########################################
+# Sentaurus Visual X-2025.06.
+# Tcl log file.
+#------------------------------------------
+# Date: Sep 09, 2025. 01:47:15.
+# Version: 2025.06.9833470
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: tcadpc12.
+# Machine: Linux, x86_64, linux64.
+# Kernel: 4.18.0-425.3.1.el8.x86_64.
+###########################################
+
+load_file /home/student/STUDENTS/230959200_A3/6/di/d0_fps.tdr -fod
+create_plot -dataset d0_fps
+select_plots {Plot_d0_fps}
+#-> Plot_d0_fps
+#-> Plot_d0_fps
+#-> d0_fps
+load_file /home/student/STUDENTS/230959200_A3/6/di/d1_fps.tdr -fod
+create_plot -dataset d1_fps
+select_plots {Plot_d1_fps}
+#-> Plot_d1_fps
+#-> Plot_d1_fps
+#-> d1_fps
+load_file /home/student/STUDENTS/230959200_A3/6/di/d2_fps.tdr -fod
+create_plot -dataset d2_fps
+select_plots {Plot_d2_fps}
+#-> Plot_d2_fps
+#-> Plot_d2_fps
+#-> d2_fps
+load_file /home/student/STUDENTS/230959200_A3/6/di/d3_fps.tdr -fod
+create_plot -dataset d3_fps
+select_plots {Plot_d3_fps}
+#-> Plot_d3_fps
+#-> Plot_d3_fps
+#-> d3_fps
+load_file /home/student/STUDENTS/230959200_A3/6/di/pn_diode_fps.tdr -fod
+create_plot -dataset pn_diode_fps
+select_plots {Plot_pn_diode_fps}
+#-> Plot_pn_diode_fps
+#-> Plot_pn_diode_fps
+#-> pn_diode_fps
+select_plots {Plot_d0_fps}
+#-> Plot_d0_fps
+select_plots {Plot_d1_fps}
+#-> Plot_d1_fps
+select_plots {Plot_d3_fps}
+#-> Plot_d3_fps
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -show_bands
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -show
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -hide
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -hide_bands
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -show_bands
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -hide_bands
+#-> 0
+select_plots {Plot_pn_diode_fps}
+#-> Plot_pn_diode_fps
+select_plots {Plot_d3_fps}
+#-> Plot_d3_fps
+select_plots {Plot_d1_fps}
+#-> Plot_d1_fps
+select_plots {Plot_d2_fps}
+#-> Plot_d2_fps
+select_plots {Plot_d1_fps}
+#-> Plot_d1_fps
+select_plots {Plot_d3_fps}
+#-> Plot_d3_fps
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -show
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -hide
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -show
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -show_bands
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -hide_bands
+#-> 0
+set_field_prop Phosphorus -plot Plot_d3_fps -geom d3_fps -hide
+#-> 0
+select_plots {Plot_pn_diode_fps}
+#-> Plot_pn_diode_fps
+exit 0
