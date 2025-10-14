@@ -1,0 +1,51 @@
+** Generating 2d grid **
+
+Creating binary tree...done.
+Imprinting binary tree on the boundary...done.
+Optimizing boundary nodes...done.
+
+Number of vertices after binary tree generation : 
+  11590 (tree) + 775 (boundary)
+
+** Delaunizing the mesh **
+
+Creating delaunizer input...done.
+Solving edges...done 
+Optimizing elements...done. (11911 vertices)
+Fixing diagonals...done.
+
+The final mesh has: 
+   11842 points.
+   23185 elements.
+       8 regions.
+Max. connectivity = 8 located at (1.24805;0.0335547)
+
+
+==============================  tri-grid quality  ================================
+    0  10  20  30  40  50  60  70  80  90 100 110 120 130 140 150 160 170 180
+ %    1  .    1   2  30  30   2   1  .   34  .   .       .                 
+---------------------------------------------------------------------------------
+minAngle: 0.6991  maxAngle: 134.025
+nVerts = 11842  nTris = 23185  nMats = 4
+max connectivity (tris per node): 8 [near (1.24805 0.0335547)]
+bmin: -0 -0.005
+bmax: 1.5 0.7
+min edgeLength: 8.27182e-05  [near (0.2222 0.0721422)]
+min volume: 1.41387e-08  max volume: 6.45447e-05  Total volume: 1.055
+bbox  volume: 1.0575
+Are all boundaries on bbox? false
+=================================================================================
+
+Smallest region: region_4_tox  Total volume: 0.005
+Interpolating data...done.
+Saving file /home/student/STUDENTS/230959200_A3/4/nmos_msh.tdr...done.
+
+===============================  Timer Report===================================
+              Total Mesh Generation Time:     0.284s       100%
+                       Rate of #Vertices:  4.16e+04
+                          Rate of #Edges:  8.41e+04
+                          Rate of #Faces:  8.15e+04
+                       Rate of #Elements:         0
+
+                            Time Covered:         0s         0%
+

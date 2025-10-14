@@ -1,0 +1,52 @@
+###########################################
+# Sentaurus Visual X-2025.06.
+# Tcl log file.
+#------------------------------------------
+# Date: Sep 08, 2025. 01:25:46.
+# Version: 2025.06.9833470
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: tcadpc12.
+# Machine: Linux, x86_64, linux64.
+# Kernel: 4.18.0-425.3.1.el8.x86_64.
+###########################################
+
+load_file /home/student/STUDENTS/230959200_A3/4/IdVg_MOSFET_exp4_des.plt
+create_plot -1d
+select_plots {Plot_1}
+#-> Plot_1
+#-> Plot_1
+#-> IdVg_MOSFET_exp4_des
+create_curve -axisX {drain TotalCurrent} -axisY {drain OuterVoltage} -dataset {IdVg_MOSFET_exp4_des} -plot Plot_1
+#-> Curve_1
+set_axis_prop -plot Plot_1 -axis x -type log
+#-> 0
+set_axis_prop -plot Plot_1 -axis y -type log
+#-> 0
+set_axis_prop -plot Plot_1 -axis y2 -type log
+#-> 0
+set_axis_prop -plot Plot_1 -axis y2 -type linear
+#-> 0
+set_axis_prop -plot Plot_1 -axis x -type linear
+#-> 0
+set_axis_prop -plot Plot_1 -axis x -type log
+#-> 0
+set_axis_prop -plot Plot_1 -axis y -type linear
+#-> 0
+set_axis_prop -plot Plot_1 -axis x -type linear
+#-> 0
+set_axis_prop -plot Plot_1 -axis y2 -type log
+#-> 0
+set_axis_prop -plot Plot_1 -axis y2 -type linear
+#-> 0
+set_axis_prop -plot Plot_1 -axis y -type log
+#-> 0
+set_axis_prop -plot Plot_1 -axis y -type linear
+#-> 0
+set_axis_prop -plot Plot_1 -axis x -type log
+#-> 0
+set_axis_prop -plot Plot_1 -axis x -type linear
+#-> 0
+load_file /home/student/STUDENTS/230959200_A3/4/IdVd_IdVd_MOSFET_exp4_des.plt
+#-> IdVd_IdVd_MOSFET_exp4_des
+exit 0
