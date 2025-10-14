@@ -1,0 +1,21 @@
+###########################################
+# Sentaurus Visual X-2025.06.
+# Tcl log file.
+#------------------------------------------
+# Date: Sep 08, 2025. 02:38:11.
+# Version: 2025.06.9833470
+# Mode: Interactive (GUI).
+# Mesa: enabled.
+# Hostname: tcadpc12.
+# Machine: Linux, x86_64, linux64.
+# Kernel: 4.18.0-425.3.1.el8.x86_64.
+###########################################
+
+load_file /home/student/STUDENTS/230959200_A3/4/pmos_msh.tdr -fod
+create_plot -dataset pmos_msh
+select_plots {Plot_pmos_msh}
+#-> Plot_pmos_msh
+#-> Plot_pmos_msh
+#-> pmos_msh
+exit 0
+ 

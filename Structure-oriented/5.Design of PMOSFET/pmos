@@ -1,0 +1,125 @@
+;;
+;; (journal:on "/home/student/STUDENTS/230959200_A3/4/pmos.jrl")
+;; "/home/student/STUDENTS/230959200_A3/4/pmos.jrl"
+(sdegeo:set-auto-region-naming OFF)
+;; #t
+(bound? 'region_1_substrate)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 1.5 0.7 0) "Silicon" "region_1_substrate")
+;; #[body 5 1]
+(sdegeo:set-default-boolean "ABA")
+;; "ABA"
+(bound? 'region_2_source)
+;; #f
+(sdegeo:create-rectangle (position 0 0 0)  (position 0.25 0.1 0) "Silicon" "region_2_source")
+;; #[body 6 1]
+(bound? 'region_3_drain)
+;; #f
+(sdegeo:create-rectangle (position 1.25 0 0)  (position 1.5 0.1 0) "Silicon" "region_3_drain")
+;; #[body 7 1]
+(sde:set-default-material "SiO2")
+;; "Silicon"
+(bound? 'region_4_tox)
+;; #f
+(sdegeo:create-rectangle (position 0.25 0 0)  (position 1.25 -0.005 0) "SiO2" "region_4_tox")
+;; #[body 8 1]
+(sdegeo:insert-vertex (position 0.2 0 0))
+;; (#[vertex 9 1])
+(sdegeo:insert-vertex (position 1.3 0 0))
+;; (#[vertex 10 1])
+(sdegeo:fillet-2d (list (car (find-vertex-id (position 0.25 0.1 0)))) 0.1)
+
+;; ()
+(sdegeo:fillet-2d (list (car (find-vertex-id (position 1.25 0.1 0)))) 0.1)
+
+;; ()
+(sdedr:define-constant-profile "ConstantProfileDefinition_substrate" "BoronActiveConcentration" 1e+17)
+;; #t
+(sdedr:define-constant-profile-region "ConstantProfilePlacement_substrate" "ConstantProfileDefinition_substrate" "region_1_substrate")
+;; #t
+(sdedr:define-constant-profile "ConstantProfileDefinition_source" "PhosphorusActiveConcentration" 1e+20)
+;; #t
+(sdedr:define-constant-profile-region "ConstantProfilePlacement_source" "ConstantProfileDefinition_source" "region_2_source")
+;; #t
+(sdedr:define-constant-profile "ConstantProfileDefinition_drain" "PhosphorusActiveConcentration" 1e+20)
+;; #t
+(sdedr:define-constant-profile-region "ConstantProfilePlacement_drain" "ConstantProfileDefinition_drain" "region_3_drain")
+;; #t
+(sdedr:define-constant-profile "ConstantProfileDefinition_drain" "PhosphorusActiveConcentration" 1e+20)
+;; #t
+(sdedr:define-constant-profile-region "ConstantProfilePlacement_drain" "ConstantProfileDefinition_drain" "region_3_drain")
+;; #t
+(sdegeo:define-contact-set "gate" 4  (color:rgb 1 0 0 ) "##")
+;; ()
+(sdegeo:define-contact-set "sorce" 4  (color:rgb 1 1 0 ) "##")
+;; ()
+(sdegeo:define-contact-set "source" 4  (color:rgb 1 1 0 ) "##")
+;; ()
+(sdegeo:delete-contact-set "sorce")
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:define-contact-set "drain" 4  (color:rgb 1 1 1 ) "##")
+;; ()
+(sdegeo:define-contact-set "substrate" 4  (color:rgb 1 0 1 ) "##")
+;; ()
+(sdegeo:set-current-contact-set "gate")
+;; "none"
+(sdegeo:set-contact (list (car (find-edge-id (position 0.75 -0.005 0)))) "gate")
+(sdegeo:set-contact (list (car (find-edge-id (position 0.75 -0.005 0)))) "gate")
+
+;; ()
+(render:rebuild)
+;; ()
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position 0.1 0 0)))) "source")
+(sdegeo:set-contact (list (car (find-edge-id (position 0.1 0 0)))) "source")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position 1.4 0 0)))) "drain")
+(sdegeo:set-contact (list (car (find-edge-id (position 1.4 0 0)))) "drain")
+
+;; ()
+(render:rebuild)
+;; ()
+(sdegeo:set-contact (list (car (find-edge-id (position 0.75 0.7 0)))) "substrate")
+(sdegeo:set-contact (list (car (find-edge-id (position 0.75 0.7 0)))) "substrate")
+
+;; ()
+(render:rebuild)
+;; ()
+(bound? 'RefEvalWin_all)
+;; #f
+(sdedr:define-refeval-window "RefEvalWin_all" "Rectangle"  (position -0.0555 -0.029 0) (position 1.5507 0.7345 0))
+;; #[body 110 1]
+(sdedr:define-refinement-size "RefinementDefinition.all" 0.02 0.02 0.01 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement.all" "RefinementDefinition.all" (list "window" "RefEvalWin_all" ) )
+;; ("RefinementPlacement.all")
+(sdedr:define-refeval-window "RefEvalWin_channel" "Rectangle"  (position 0.15 -0.005 0.0)  (position 1.35 0.1 0.0) )
+;; #[body 111 1]
+(sdedr:define-multibox-size "MultiboxDefinition.channel" 0.01 0.01 0.005 0.005 1 1.25 )
+;; #t
+(sdedr:define-multibox-placement "MultiboxPlacement.channel" "MultiboxDefinition.channel" "RefEvalWin_channel" )
+;; #t
+(sde:set-project-name "pmos")
+;; ""
+(sdesnmesh:iocontrols "outputFile" "pmos")
+;; #t
+(sde:set-meshing-command "snmesh")
+;; #t
+(sde:set-project-name "pmos")
+;; "./nmos"
+(sdesnmesh:iocontrols "outputFile" "pmos")
+;; #t
+(sde:build-mesh "" "pmos")
+"Meshing successful"
+;; #t
+(sde:save-model "/home/student/STUDENTS/230959200_A3/4/pmos")
+;; 0
+;; (journal:off)
